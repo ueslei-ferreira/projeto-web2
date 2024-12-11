@@ -1,0 +1,17 @@
+.features {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+    background-color: #2e2e2e;
+}
+
+.feature {
+    text-align: center;
+    width: 250px;
+}
+
+.feature i {
+    font-size: 50px;
+    color: #8b0000;
+    margin-bottom: 20px;
+}

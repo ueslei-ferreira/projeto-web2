@@ -1,0 +1,61 @@
+.banner {
+    background-color: #8b0000;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.banner-content {
+    max-width: 600px;
+}
+
+.banner h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.banner p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #f1f1f1;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.banner-content {
+    display: flex; /* Coloca os elementos lado a lado */
+    gap: 20px; /* Espaçamento entre as opções */
+    justify-content: center; /* Centraliza os itens */
+    align-items: center; /* Alinha verticalmente os itens */
+    padding: 20px;
+  }
+  .banner-content a {
+    text-decoration: none; /* Remove sublinhado do link */
+  }
+  .option {
+    background-color: #FFFFE0; /* Cor inicial */
+    color: rgb(105, 4, 4);
+    padding: 80px 80px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Efeito de transição suave */
+    cursor: pointer;
+    flex: 1; /* Divide o espaço igualmente entre os elementos */
+    max-width: 200px; /* Limita o tamanho */
+    display: flex; /* Ativa o flexbox */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    text-align: center;
+  }
+  .option:hover {
+    background-color: #FA8072; /* Nova cor ao passar o mouse */
+    transform: scale(1.05); /* Leve aumento no tamanho */
+  }
