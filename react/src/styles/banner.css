@@ -1,14 +1,23 @@
 .banner {
-    background-color: #8b0000;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  background-color: #8b0000;
+  min-height: 300px; /* Altura mínima para o banner */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%; /* Garante que o banner ocupe toda a largura */
+  box-sizing: border-box; /* Inclui padding/borda na largura */
+  overflow: hidden; /* Impede elementos de ultrapassarem os limites */
 }
 
 .banner-content {
-    max-width: 600px;
+  max-width: 100%; /* Garante que o conteúdo respeite os limites */
+  display: flex;
+  flex-wrap: wrap; /* Quebra linha, se necessário */
+  gap: 20px; /* Espaçamento entre elementos */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .banner h2 {
@@ -59,3 +68,10 @@
     background-color: #FA8072; /* Nova cor ao passar o mouse */
     transform: scale(1.05); /* Leve aumento no tamanho */
   }
+
+  .intro-image img {
+    max-width: 100%; /* Ajusta imagem ao tamanho do container */
+    height: auto; /* Mantém proporção */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
