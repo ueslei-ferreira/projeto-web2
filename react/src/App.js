@@ -7,9 +7,10 @@ import ServiceCards from "./components/Servicos";
 import Features from "./components/Features";
 import CadastroPrestadores from "./components/CadastroPrestadores";
 import Navigation from "./components/Navigation";
-
-import "./styles/style.css";
 import Banner from "./components/Banner";
+import PerfilPrestador from "./components/PerfilPrestador";
+import "./styles/style.css";
+
 
 function App() {
   return (
@@ -18,10 +19,11 @@ function App() {
         <Header />
         <Navigation />
         <main>
-          <Banner/>
           <Routes>
+            <Route path="/" element={<Banner/>} />            
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/servicos" element={<ServiceCards />} />
+            <Route path="/perfil" element={<PerfilPrestador/>} />
             <Route path="/cadastro/prestadores" element={<CadastroPrestadores />} />
           </Routes>
           <Features />

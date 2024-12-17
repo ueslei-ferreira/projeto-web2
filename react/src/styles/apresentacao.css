@@ -1,49 +1,81 @@
-.intro-section {
-    background-color: #8b0000;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Principais Funcionalidades */
+.features-section {
+    background-color: #f9f9f9;
+    padding: 40px 20px;
     text-align: center;
-    padding: 40px;
 }
 
-.intro-content {
+.features-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #8b0000;
+}
+
+.features-content {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    color: #f1f1f1;
 }
 
-.intro-text {
-    flex: 1;
-    text-align: left;
+.feature {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 200px;
+    text-align: center;
+    color: #8b0000;
 }
 
-.intro-text h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+.feature img {
+    width: 60px;
+    margin-bottom: 15px;
 }
 
-.intro-text p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 25px;
+.feature p {
+    font-size: 16px;
+    line-height: 1.4;
 }
 
-.intro-image img {
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Como Funciona o BikoJob */
+.steps-section {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    text-align: center;
 }
 
-.cta-button {
-    padding: 10px 20px;
-    background-color: #000000;
-    color: #f1f1f1;
-    text-decoration: none;
-    border-radius: 5px;
+.steps-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #8b0000;
+}
+
+.steps-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.step {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 250px;
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #8b0000;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 16px;
+    line-height: 1.4;
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/cards_servicos.css";
 
 const ServiceCards = () => {
@@ -30,14 +31,16 @@ const ServiceCards = () => {
   return (
     <div className="service-cards">
       {services.map((service) => (
-        <div className="card" key={service.id}>
-          <img src={service.img} alt={service.nome} className="card-img" />
-          <div className="card-content">
-            <h3>{service.nome}</h3>
-            <p>{service.descricao}</p>
-            <p className="card-price">R$ {service.preco}</p>
+        <Link to = "/perfil">
+          <div className="card" key={service.id}>
+            <img src={service.img} alt={service.nome} className="card-img" />
+            <div className="card-content">
+              <h3>{service.nome}</h3>
+              <p>{service.descricao}</p>
+              <p className="card-price">R$ {service.preco}</p>
+            </div>
           </div>
-        </div>
+        </Link>
       ))}
     </div>
   );

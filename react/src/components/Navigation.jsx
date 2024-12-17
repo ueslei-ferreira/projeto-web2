@@ -11,9 +11,9 @@ function Navigation() {
       <Link to ="/servicos">
         <i className="fas fa-tools"></i> Serviços
       </Link>
-      <a href="#">
+      <Link to = "/">
         <i className="fas fa-info-circle"></i> Sobre Nós
-      </a>
+      </Link>
       <a href="#">
         <i className="fas fa-phone"></i> Contato
       </a>

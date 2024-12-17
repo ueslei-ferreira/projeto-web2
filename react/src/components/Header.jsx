@@ -50,10 +50,6 @@ function Header() {
         <Link to="/cadastro">
           <i className="fas fa-user"></i> Entrar ou Cadastrar
         </Link>
-
-        <a href="#" className="cart">
-          <i className="fas fa-shopping-cart"></i> Meu Carrinho
-        </a>
       </div>
     </header>
   );
