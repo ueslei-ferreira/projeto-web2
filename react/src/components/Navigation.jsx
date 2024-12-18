@@ -1,22 +1,37 @@
 import React from "react";
 import "../styles/navigation.css";
 import { Link } from "react-router-dom";
+import { FaSearch, FaHandsHelping, FaClipboard, FaListUl, FaServicestack, FaHome } from "react-icons/fa"; // Importa ícones da biblioteca react-icons
 
 function Navigation() {
   return (
     <nav>
-      <Link to = "/">
-        <i className="fas fa-home"></i> Início
-      </Link>
-      <Link to ="/servicos">
-        <i className="fas fa-tools"></i> Serviços
-      </Link>
-      <Link to = "/">
-        <i className="fas fa-info-circle"></i> Sobre Nós
-      </Link>
-      <a href="#">
-        <i className="fas fa-phone"></i> Contato
-      </a>
+      <div className="nav-links">
+        <Link to="/">
+          <FaHome className="nav-icon" />
+          <span>Início</span>
+        </Link>
+        <Link to="/servicos">
+          <FaServicestack className="nav-icon" />
+          <span>Serviços</span>
+        </Link>
+        <Link to="/trabalhos">
+          <FaSearch className="nav-icon" />
+          <span>Procurar</span>
+        </Link>
+        <Link to="/cadastro/trabalhos">
+          <FaHandsHelping className="nav-icon" />
+          <span>Oferecer</span>
+        </Link>
+        <Link to="/cadastro/prestadores">
+          <FaClipboard className="nav-icon" />
+          <span>Prestadores</span>
+        </Link>
+        <Link to="/trabalhos">
+          <FaListUl className="nav-icon" />
+          <span>Trabalhos</span>
+        </Link>
+      </div>
     </nav>
   );
 }

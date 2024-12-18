@@ -8,6 +8,7 @@
     margin: 20px auto;
     color: #690404;
     text-align: center;
+    font-family: 'Arial', sans-serif; /* Melhorando a legibilidade */
 }
 
 /* Título */
@@ -24,7 +25,7 @@
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 20px;
-    border: 2px solid #ccc;
+    border: 2px solid #8b0000; /* Utilizando sua cor de destaque para bordas */
 }
 
 /* Placeholder para quando não houver foto */
@@ -38,6 +39,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    font-size: 14px;
 }
 
 /* Detalhes do perfil */
@@ -50,4 +52,5 @@
     font-size: 16px;
     margin: 5px 0;
     line-height: 1.5;
+    color: #8b0000; /* Utilizando sua cor de destaque */
 }

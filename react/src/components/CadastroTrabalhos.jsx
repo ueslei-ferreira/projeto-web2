@@ -1,37 +1,28 @@
 import React, { useState } from "react";
-import "../styles/cadastro_prestadores.css";
+import "../styles/cadastro_trabalhos.css";
 
-const CadastroPrestadores = () => {
-  const [prestador, setPrestador] = useState({
+const CadastroTrabalhos = () => {
+  const [trabalho, setTrabalho] = useState({
+    titulo: "",
     tipoServico: "",
-    preco: "",
+    precoOferecido: "",
     modalidadePreco: "por hora", // Valor padrão
     descricao: "",
-    foto: null, // Novo campo para a foto
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPrestador({ ...prestador, [name]: value });
-  };
-
-  const handleFileChange = (e) => {
-    setPrestador({ ...prestador, foto: e.target.files[0] }); // Salva o arquivo selecionado
+    setTrabalho({ ...trabalho, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    for (const key in prestador) {
-      formData.append(key, prestador[key]);
-    }
 
     // Simulação do envio dos dados
-    console.log("Dados do Prestador:", prestador);
-    console.log("Foto:", prestador.foto);
-    
+    console.log("Dados do Trabalho:", trabalho);
+
     // Aqui você faria o envio via API:
-    // fetch('/api/prestadores', { method: 'POST', body: formData });
+    // fetch('/api/trabalhos', { method: 'POST', body: JSON.stringify(trabalho), headers: { 'Content-Type': 'application/json' } });
   };
 
   const servicos = [
@@ -45,13 +36,23 @@ const CadastroPrestadores = () => {
   ];
 
   return (
-    <div className="cadastro-prestadores">
-      <h2>Cadastro de Prestadores</h2>
+    <div className="cadastro-trabalhos">
+      <h2>Cadastro de Trabalhos Disponíveis</h2>
       <form onSubmit={handleSubmit}>
+        <label>Título do Trabalho:</label>
+        <input
+          name="titulo"
+          type="text"
+          value={trabalho.titulo}
+          onChange={handleChange}
+          placeholder="Exemplo: Limpeza semanal em apartamento"
+          required
+        />
+
         <label>Tipo de Serviço:</label>
         <select
           name="tipoServico"
-          value={prestador.tipoServico}
+          value={trabalho.tipoServico}
           onChange={handleChange}
           required
         >
@@ -66,45 +67,37 @@ const CadastroPrestadores = () => {
         <label>Modalidade de Preço:</label>
         <select
           name="modalidadePreco"
-          value={prestador.modalidadePreco}
+          value={trabalho.modalidadePreco}
           onChange={handleChange}
         >
           <option value="por hora">Por Hora</option>
           <option value="serviço completo">Serviço Completo</option>
         </select>
 
-        <label>Preço (R$):</label>
+        <label>Preço Oferecido (R$):</label>
         <input
-          name="preco"
+          name="precoOferecido"
           type="number"
-          value={prestador.preco}
+          value={trabalho.precoOferecido}
           onChange={handleChange}
+          placeholder="Exemplo: 150"
           required
         />
 
         <label>Descrição:</label>
         <textarea
           name="descricao"
-          value={prestador.descricao}
+          value={trabalho.descricao}
           onChange={handleChange}
           rows="4"
-          placeholder="Descreva seus serviços, experiência e outras informações relevantes"
+          placeholder="Descreva os detalhes do trabalho, incluindo requisitos, local e outras informações relevantes"
           required
         />
 
-        <label>Foto do Prestador:</label>
-        <input
-          type="file"
-          name="foto"
-          accept="image/*" // Restringe a seleção a arquivos de imagem
-          onChange={handleFileChange}
-          required
-        />
-
-        <button type="submit">Cadastrar</button>
+        <button type="submit">Cadastrar Trabalho</button>
       </form>
     </div>
   );
 };
 
-export default CadastroPrestadores;
+export default CadastroTrabalhos;

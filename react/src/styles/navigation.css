@@ -1,13 +1,43 @@
+/* Estilo do container de navegação */
 nav {
     display: flex;
     justify-content: center;
     background-color: #000000;
     padding: 10px 0;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
 }
 
+/* Agrupamento dos links */
+.nav-links {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens sejam empilhados horizontalmente */
+    justify-content: space-around; /* Ajusta espaçamento entre os links */
+    width: 80%; /* Limita a largura da div */
+    max-width: 800px; /* Define um limite máximo de largura */
+    gap: 10px; /* Ajuste opcional para espaçamento entre links */
+    margin: 0 auto; /* Centraliza a div horizontalmente */
+}
+
+/* Links de navegação */
 nav a {
-    margin: 0 15px;
-    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
+    color: #f1f1f1;
     font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+/* Ícones de navegação */
+.nav-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+/* Hover para os links */
+nav a:hover {
+    color: #fa8072; /* Destaque ao passar o mouse */
 }

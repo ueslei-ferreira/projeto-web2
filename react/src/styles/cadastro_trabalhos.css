@@ -1,17 +1,16 @@
 /* Container geral do formulário */
-.cadastro-prestadores {
-    background-color: #ffffe0; /* Fundo claro semelhante às opções */
+.cadastro-trabalhos {
+    background-color: #ffffe0; /* Fundo semelhante às opções */
     padding: 20px 30px; /* Espaçamento interno */
     border-radius: 10px; /* Bordas arredondadas */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
     max-width: 600px; /* Limita a largura */
     margin: 20px auto; /* Centraliza na tela */
     color: #690404; /* Cor do texto */
-    font-family: 'Arial', sans-serif; /* Melhorando a legibilidade */
 }
 
 /* Estilo do título */
-.cadastro-prestadores h2 {
+.cadastro-trabalhos h2 {
     font-size: 28px;
     text-align: center;
     margin-bottom: 20px;
@@ -19,7 +18,7 @@
 }
 
 /* Estilo dos rótulos */
-.cadastro-prestadores label {
+.cadastro-trabalhos label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
@@ -27,37 +26,26 @@
 }
 
 /* Campos de entrada */
-.cadastro-prestadores input,
-.cadastro-prestadores select,
-.cadastro-prestadores textarea,
-.cadastro-prestadores .card-price {
+.cadastro-trabalhos input,
+.cadastro-trabalhos select,
+.cadastro-trabalhos textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #04040465;
+    border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-    color: #555;
-    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     background-color: #f1f1f1;
 }
 
-.cadastro-prestadores input:focus,
-.cadastro-prestadores select:focus,
-.cadastro-prestadores textarea:focus,
-.cadastro-prestadores .card-price:focus {
-    border-color: #8b0000;
-    box-shadow: 0 0 8px rgba(139, 0, 0, 0.2);
-}
-
 /* Campo de texto para descrição */
-.cadastro-prestadores textarea {
+.cadastro-trabalhos textarea {
     resize: vertical; /* Permite redimensionar apenas verticalmente */
     min-height: 100px; /* Altura mínima */
 }
 
 /* Botão de envio */
-.cadastro-prestadores button {
+.cadastro-trabalhos button {
     padding: 10px 20px;
     background-color: #8b0000;
     color: #f1f1f1;
@@ -70,18 +58,14 @@
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cadastro-prestadores button:hover {
+.cadastro-trabalhos button:hover {
     background-color: #fa8072; /* Cor ao passar o mouse */
     transform: scale(1.05); /* Leve aumento */
 }
 
-/* Campo de arquivo */
-.cadastro-prestadores input[type="file"] {
-    border: none;
-    background-color: #f9f9f9;
-    font-size: 14px;
-    padding: 10px 0;
-    margin-bottom: 15px;
-    color: #555;
-    cursor: pointer;
+/* Mensagem de placeholder para campos de entrada */
+.cadastro-trabalhos input::placeholder,
+.cadastro-trabalhos textarea::placeholder {
+    color: #aaa;
+    font-style: italic;
 }

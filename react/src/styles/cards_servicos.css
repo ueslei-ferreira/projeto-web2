@@ -1,61 +1,65 @@
 /* Container geral */
 .service-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f8f8f8; /* Cor de fundo */
-  }
-  
-  /* Estilo dos cards */
-  .card {
-    background-color: #ffffe0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    overflow: hidden;
-    width: 250px; /* Tamanho fixo */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Imagem */
-  .card-img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  /* Conteúdo do card */
-  .card-content {
-    padding: 15px;
-    text-align: center;
-  }
-  
-  .card-content h3 {
-    font-size: 18px;
-    color: #8b0000;
-    margin-bottom: 10px;
-  }
-  
-  .card-content p {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .card-price {
-    font-size: 16px;
-    font-weight: bold;
-    color: #690404;
-  }
-  /* Remover sublinhado dos links */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: #1c1c1e; /* Cor de fundo */
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Estilo dos cards */
+.card {
+  background-color: #ffffe0;
+  border: 1px solid #8b0000; /* Usando sua cor de destaque */
+  border-radius: 10px;
+  overflow: hidden;
+  width: 250px; /* Tamanho fixo */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #f1f1f1; /* Usando a cor clara */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  background-color: #2e2e2e; /* Utilizando sua outra cor */
+}
+
+/* Imagem */
+.card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Conteúdo do card */
+.card-content {
+  padding: 15px;
+  text-align: center;
+}
+
+.card-content h3 {
+  font-size: 18px;
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+.card-content p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #f1f1f1; /* Usando a cor clara para o texto */
+}
+
+.card-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #690404;
+}
+
+/* Remover sublinhado dos links */
 .service-cards a {
   text-decoration: none;
   color: inherit; /* Mantém a cor padrão do texto */

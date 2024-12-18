@@ -5,11 +5,13 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100%; /* Garante que o banner ocupe toda a largura */
+  max-width: 750px; /* Garante a largura máxima */
+  margin: 0 auto; /* Centraliza horizontalmente */
   box-sizing: border-box; /* Inclui padding/borda na largura */
   overflow: hidden; /* Impede elementos de ultrapassarem os limites */
   padding: 15px;
 }
+
 
 .banner-content {
   max-width: 100%; /* Garante que o conteúdo respeite os limites */

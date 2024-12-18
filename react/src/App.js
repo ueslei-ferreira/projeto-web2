@@ -10,7 +10,8 @@ import Navigation from "./components/Navigation";
 import Banner from "./components/Banner";
 import PerfilPrestador from "./components/PerfilPrestador";
 import "./styles/style.css";
-
+import CadastroTrabalhos from "./components/CadastroTrabalhos";
+import ListaTrabalhos from "./components/ListaTrabalhos";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
             <Route path="/servicos" element={<ServiceCards />} />
             <Route path="/perfil" element={<PerfilPrestador/>} />
             <Route path="/cadastro/prestadores" element={<CadastroPrestadores />} />
+            <Route path="/cadastro/trabalhos" element={<CadastroTrabalhos/>} /> 
+            <Route path="/trabalhos" element={<ListaTrabalhos/>} /> 
           </Routes>
           <Features />
         </main>
