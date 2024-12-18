@@ -6,7 +6,7 @@ const PerfilPrestador = ({ prestador = {} }) => {
 
   return (
     <div className="perfil-prestador">
-      <h2>Perfil do Prestador</h2>
+      <h2>Perfil do Profissional</h2>
       <div className="perfil-info">
         {foto ? (
           <img

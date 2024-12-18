@@ -21,9 +21,9 @@
   align-items: center; /* Sem efeito com display block */
 }
 
-.banner h2 {
+.banner h1 {
     font-size: 36px;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 }
 
 .banner p {

@@ -37,7 +37,7 @@ const CadastroTrabalhos = () => {
 
   return (
     <div className="cadastro-trabalhos">
-      <h2>Cadastro de Trabalhos Disponíveis</h2>
+      <h2>Cadastre uma serviço para que prestadores achem você</h2>
       <form onSubmit={handleSubmit}>
         <label>Título do Trabalho:</label>
         <input
