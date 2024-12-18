@@ -9,12 +9,15 @@ function Banner() {
         <div className="intro-image">
           <Apresentar />
         </div>
-        <Link to="/servicos">
-          <div className="option">Procurar Serviços</div>
-        </Link>
-        <Link to="/cadastro/prestadores">
-          <div className="option">Prestar Serviços</div>
-        </Link>
+        <h1>Comece imediatamente:</h1>
+        <div className="main-links">
+          <Link to="/servicos">
+            <div className="option">Procurar Serviços</div>
+          </Link>
+          <Link to="/cadastro/prestadores">
+            <div className="option">Prestar Serviços</div>
+          </Link>
+        </div>
       </div>
     </section>
   );

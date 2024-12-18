@@ -1,5 +1,9 @@
 import React from "react";
 import "../styles/apresentacao.css";
+import agendamento from "../images/agendamento.png";
+import pf from "../images/pf.png";
+import service from "../images/service.png";
+import procurando from "../images/procurando.jpg";
 
 function Apresentar() {
   return (
@@ -18,27 +22,28 @@ function Apresentar() {
           </div>
           <div className="intro-image">
             <img
-              src="placeholder.jpg"
+              src={procurando}
               alt="Pessoa usando celular para buscar serviços"
+              className="small-image"
             />
           </div>
         </div>
       </section>
 
       {/* Seção de Principais Funcionalidades */}
-      <section className="features-section">
+      <section className="feature-as-section">
         <h2>Principais Funcionalidades</h2>
-        <div className="features-content">
-          <div className="feature">
-            <img src="search-icon.png" alt="Busca de Serviços" />
+        <div className="features-images">
+          <div className="feature-a">
+            <img src={service} alt="Busca de Serviços" />
             <p>Encontre serviços próximos a você com facilidade.</p>
           </div>
-          <div className="feature">
-            <img src="calendar-icon.png" alt="Agendamento" />
+          <div className="feature-a">
+            <img src={agendamento} alt="Agendamento" />
             <p>Agende serviços de acordo com sua disponibilidade.</p>
           </div>
-          <div className="feature">
-            <img src="professional-icon.png" alt="Profissionais Verificados" />
+          <div className="feature-a">
+            <img src={pf} alt="Profissionais Verificados" />
             <p>Trabalhe com profissionais avaliados e confiáveis.</p>
           </div>
         </div>

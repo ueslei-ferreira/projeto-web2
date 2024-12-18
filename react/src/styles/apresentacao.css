@@ -1,4 +1,27 @@
 /* Principais Funcionalidades */
+.intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.intro-text {
+    flex: 1;
+}
+.intro-image {
+    flex: 1;
+    text-align: center;
+    width: 700px;
+}
+.small-image {
+    max-width: 100%;
+    height: auto;
+}
+.features-images{
+    display: flex;
+    justify-content: center;
+}
 .features-section {
     background-color: #f9f9f9;
     padding: 40px 20px;
@@ -18,11 +41,12 @@
     gap: 20px;
 }
 
-.feature {
+.feature-a {
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    margin: 10px;
     max-width: 200px;
     text-align: center;
     color: #8b0000;
@@ -40,7 +64,6 @@
 
 /* Como Funciona o BikoJob */
 .steps-section {
-    background-color: #ffffff;
     padding: 40px 20px;
     text-align: center;
 }
@@ -52,6 +75,7 @@
 }
 
 .steps-content {
+    color: #8b0000;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

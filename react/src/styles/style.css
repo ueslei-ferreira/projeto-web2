@@ -1,7 +1,6 @@
 /* Configuração geral da página */
 body, html {
-  margin: 0;
-  padding: 0;
+  
   box-sizing: border-box;
   width: 100%;
   height: 100%;
@@ -30,10 +29,11 @@ body, html {
     flex: 0 0 200px; /* Tamanho fixo do Features */
   }
   main {
-    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    text-align: center; /* Centraliza texto e elementos inline */
 }
+
   footer{
     margin-top: auto;
   }
+  

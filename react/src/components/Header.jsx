@@ -16,7 +16,7 @@ function Header() {
       </div>
       <div className="search-bar">
         <i className="fas fa-search"></i>
-        <input type="text" placeholder="Como podemos te ajudar?" />
+        <input type="text" placeholder="Feedback" />
       </div>
       <div className="user-options">
         {/* Atendimento com popup controlado por estado */}
