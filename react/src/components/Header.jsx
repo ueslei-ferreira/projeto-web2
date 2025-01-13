@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/header.css";
 import logo from "../images/logofalkao.ico";
 
 function Header() {
-  const [showPopup, setShowPopup] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); // Adicionando o estado showPopup
+
+  useEffect(() => {
+    // Verifica se existe um token no localStorage para determinar o status de login
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token); // Define como true se o token existir
+  }, []);
 
   return (
     <header>
       <div className="logo">
-        <Link to="/" className="logo-link">  {/* O Link redireciona para a página inicial */}
+        <Link to="/" className="logo-link"> {/* O Link redireciona para a página inicial */}
           <img src={logo} alt="Logo" />
           <h1>BikoJob</h1>
         </Link>
@@ -25,7 +32,7 @@ function Header() {
           onMouseEnter={() => setShowPopup(true)}
           onMouseLeave={() => setShowPopup(false)}
         >
-          <a href="#">
+          <a>
             <i className="fas fa-headset"></i> Atendimento
           </a>
           <div id="popup-atendimento" className={`popup ${showPopup ? "" : "oculto"}`}>
@@ -46,10 +53,12 @@ function Header() {
             <p>Dom: Folga</p>
           </div>
         </div>
-        {/* Navegação com Link */}
-        <Link to="/cadastro">
-          <i className="fas fa-user"></i> Entrar ou Cadastrar
-        </Link>
+        {/* Exibe o link de login/cadastro apenas se o usuário não estiver logado */}
+        {!isLoggedIn && (
+          <Link to="/cadastro">
+            <i className="fas fa-user"></i> Entrar ou Cadastrar
+          </Link>
+        )}
       </div>
     </header>
   );

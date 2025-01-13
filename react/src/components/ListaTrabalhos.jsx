@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/lista_trabalhos.css";
+import { Link } from "react-router-dom";
 
 const ListaTrabalhos = () => {
   const trabalhos = [
@@ -33,21 +34,23 @@ const ListaTrabalhos = () => {
     <div className="lista-trabalhos">
       <h2>Trabalhos Disponíveis</h2>
       {trabalhos.map((trabalho) => (
-        <div key={trabalho.id} className="trabalho-card">
-          <h3>{trabalho.titulo}</h3>
-          <p>
-            <strong>Serviço:</strong> {trabalho.tipoServico}
-          </p>
-          <p>
-            <strong>Preço Oferecido:</strong> R$ {trabalho.precoOferecido}
-          </p>
-          <p>
-            <strong>Modalidade:</strong> {trabalho.modalidadePreco}
-          </p>
-          <p>
-            <strong>Descrição:</strong> {trabalho.descricao}
-          </p>
-        </div>
+        <Link to="/detalhes-trabalho">
+          <div key={trabalho.id} className="trabalho-card">
+            <h3>{trabalho.titulo}</h3>
+            <p>
+              <strong>Serviço:</strong> {trabalho.tipoServico}
+            </p>
+            <p>
+              <strong>Preço Oferecido:</strong> R$ {trabalho.precoOferecido}
+            </p>
+            <p>
+              <strong>Modalidade:</strong> {trabalho.modalidadePreco}
+            </p>
+            <p>
+              <strong>Descrição:</strong> {trabalho.descricao}
+            </p>
+          </div>
+        </Link>
       ))}
     </div>
   );

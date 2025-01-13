@@ -46,7 +46,11 @@
 .trabalho-card strong {
     color: #333;
 }
-
+.lista-trabalhos a {
+    text-decoration: none;
+    color: inherit; /* Garante que o link herda a cor do pai */
+  }
+  
 /* Responsividade */
 @media (max-width: 600px) {
     .lista-trabalhos {

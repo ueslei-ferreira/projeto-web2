@@ -21,7 +21,6 @@ const CadastroTrabalhos = () => {
     // Simulação do envio dos dados
     console.log("Dados do Trabalho:", trabalho);
 
-    // Aqui você faria o envio via API:
     // fetch('/api/trabalhos', { method: 'POST', body: JSON.stringify(trabalho), headers: { 'Content-Type': 'application/json' } });
   };
 

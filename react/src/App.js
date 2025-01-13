@@ -12,7 +12,7 @@ import PerfilPrestador from "./components/PerfilPrestador";
 import "./styles/style.css";
 import CadastroTrabalhos from "./components/CadastroTrabalhos";
 import ListaTrabalhos from "./components/ListaTrabalhos";
-
+import DetalhesTrabalho from "./components/DetalhesTrabalho";
 function App() {
   return (
     <Router>
@@ -27,7 +27,8 @@ function App() {
             <Route path="/perfil" element={<PerfilPrestador/>} />
             <Route path="/cadastro/prestadores" element={<CadastroPrestadores />} />
             <Route path="/cadastro/trabalhos" element={<CadastroTrabalhos/>} /> 
-            <Route path="/trabalhos" element={<ListaTrabalhos/>} /> 
+            <Route path="/trabalhos" element={<ListaTrabalhos/>} />
+            <Route path="/detalhes-trabalho" element={<DetalhesTrabalho/>} />
           </Routes>
           <Features />
         </main>
