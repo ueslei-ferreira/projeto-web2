@@ -1,5 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from .models import Servico, Agendamento
 from django.contrib.auth import authenticate
 
 class UserSerializer(serializers.ModelSerializer):
@@ -33,3 +34,33 @@ class LoginSerializer(serializers.Serializer):
             raise serializers.ValidationError("Usuário inativo")
 
         return {'user': user}
+
+
+class ServicoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Servico
+        fields = "__all__"
+        read_only_fields = ["usuario"]
+
+    def create(self, validated_data):
+        # O usuário logado será associado automaticamente
+        validated_data["usuario"] = self.context["request"].user
+        return super().create(validated_data)
+
+class AgendamentoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Agendamento
+        fields = "__all__"
+        read_only_fields = ["usuario", "criado_em", "servico"]
+
+    def validate(self, data):
+        if "data" not in data or not data["data"]:
+            raise serializers.ValidationError({"data": "A data é obrigatória."})
+        if "horario" not in data or not data["horario"]:
+            raise serializers.ValidationError({"horario": "O horário é obrigatório."})
+        return data
+
+    def create(self, validated_data):
+        # Adiciona o usuário logado ao agendamento
+        validated_data["usuario"] = self.context["request"].user
+        return super().create(validated_data)

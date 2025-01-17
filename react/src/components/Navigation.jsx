@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/navigation.css";
 import { Link } from "react-router-dom";
-import { FaSearch, FaHandsHelping, FaClipboard, FaListUl, FaServicestack, FaHome } from "react-icons/fa"; // Importa ícones da biblioteca react-icons
+import {FaClipboard, FaListUl, FaServicestack, FaHome } from "react-icons/fa"; // Importa ícones da biblioteca react-icons
 
 function Navigation() {
   return (
@@ -15,21 +15,13 @@ function Navigation() {
           <FaServicestack className="nav-icon" />
           <span>Serviços</span>
         </Link>
-        <Link to="/trabalhos">
-          <FaSearch className="nav-icon" />
-          <span>Procurar</span>
-        </Link>
-        <Link to="/cadastro/trabalhos">
-          <FaHandsHelping className="nav-icon" />
-          <span>Oferecer</span>
-        </Link>
         <Link to="/cadastro/prestadores">
           <FaClipboard className="nav-icon" />
-          <span>Prestadores</span>
+          <span>Cadastrar Trabalho</span>
         </Link>
-        <Link to="/trabalhos">
+        <Link to="/meus/trabalhos">
           <FaListUl className="nav-icon" />
-          <span>Trabalhos</span>
+          <span>Seus Anúncios</span>
         </Link>
       </div>
     </nav>

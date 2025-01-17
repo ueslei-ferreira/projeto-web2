@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/header.css";
 import logo from "../images/logofalkao.ico";
 
 function Header() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showPopup, setShowPopup] = useState(false); // Adicionando o estado showPopup
+  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
+
+  const updateLoginStatus = () => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  };
 
   useEffect(() => {
-    // Verifica se existe um token no localStorage para determinar o status de login
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token); // Define como true se o token existir
+    updateLoginStatus();
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    updateLoginStatus();
+    navigate("/");
+  };
 
   return (
     <header>
       <div className="logo">
-        <Link to="/" className="logo-link"> {/* O Link redireciona para a página inicial */}
+        <Link to="/" className="logo-link">
           <img src={logo} alt="Logo" />
           <h1>BikoJob</h1>
         </Link>
@@ -25,16 +35,15 @@ function Header() {
         <i className="fas fa-search"></i>
         <input type="text" placeholder="Feedback" />
       </div>
-      <div className="user-options">
-        {/* Atendimento com popup controlado por estado */}
+      <div className="options">
         <div
           className="atendimento"
           onMouseEnter={() => setShowPopup(true)}
           onMouseLeave={() => setShowPopup(false)}
         >
-          <a>
+          <button className="atendimento-button">
             <i className="fas fa-headset"></i> Atendimento
-          </a>
+          </button>
           <div id="popup-atendimento" className={`popup ${showPopup ? "" : "oculto"}`}>
             <p>
               <i className="fas fa-phone"></i> Telefone: (89) 99431-0804
@@ -53,12 +62,18 @@ function Header() {
             <p>Dom: Folga</p>
           </div>
         </div>
-        {/* Exibe o link de login/cadastro apenas se o usuário não estiver logado */}
-        {!isLoggedIn && (
-          <Link to="/cadastro">
-            <i className="fas fa-user"></i> Entrar ou Cadastrar
-          </Link>
-        )}
+                
+        <div className="logs">
+          {localStorage.getItem("token") ? (
+            <button onClick={handleLogout} className="logout-button">
+              <i className="fas fa-sign-out-alt"></i> Sair
+            </button>
+          ) : (
+            <Link to="/cadastro" className="login-link">
+              <i className="fas fa-user"></i> Entrar ou Cadastrar
+            </Link>
+          )}
+        </div>
       </div>
     </header>
   );

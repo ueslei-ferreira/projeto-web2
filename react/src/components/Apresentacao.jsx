@@ -65,10 +65,6 @@ function Apresentar() {
             <span className="step-number">3</span>
             <p>Contrate profissionais e receba o serviço em sua casa.</p>
           </div>
-          <div className="step">
-            <span className="step-number">4</span>
-            <p>Avalie o serviço com nosso sistema de estrelas.</p>
-          </div>
         </div>
       </section>
     </section>

@@ -10,9 +10,10 @@ import Navigation from "./components/Navigation";
 import Banner from "./components/Banner";
 import PerfilPrestador from "./components/PerfilPrestador";
 import "./styles/style.css";
-import CadastroTrabalhos from "./components/CadastroTrabalhos";
 import ListaTrabalhos from "./components/ListaTrabalhos";
-import DetalhesTrabalho from "./components/DetalhesTrabalho";
+import TrabalhoDetalhes from "./components/TrabalhoDetalhes";
+import MyAppointments from "./components/MeusServicos";
+
 function App() {
   return (
     <Router>
@@ -21,14 +22,14 @@ function App() {
         <Navigation />
         <main>
           <Routes>
-            <Route path="/" element={<Banner/>} />            
+            <Route path="/" element={<Banner />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="/servicos" element={<ServiceCards />} />
-            <Route path="/perfil" element={<PerfilPrestador/>} />
+            <Route path="/perfil" element={<PerfilPrestador />} />
             <Route path="/cadastro/prestadores" element={<CadastroPrestadores />} />
-            <Route path="/cadastro/trabalhos" element={<CadastroTrabalhos/>} /> 
-            <Route path="/trabalhos" element={<ListaTrabalhos/>} />
-            <Route path="/detalhes-trabalho" element={<DetalhesTrabalho/>} />
+            <Route path="/trabalhos" element={<ListaTrabalhos />} />
+            <Route path="/trabalhos/:id" element={<TrabalhoDetalhes />} />
+            <Route path="/meus/trabalhos" element={<MyAppointments />} />
           </Routes>
           <Features />
         </main>

@@ -17,9 +17,6 @@ function Banner() {
           <Link to="/cadastro/prestadores">
             <div className="option">Prestar Serviços</div>
           </Link>
-          <Link to="/cadastro/trabalhos">
-            <div className="option">Cadastre um trabalho</div>
-          </Link>
           <Link to="/trabalhos">
             <div className="option">Trabalhos disponíveis</div>
           </Link>
