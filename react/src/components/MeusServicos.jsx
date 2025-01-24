@@ -28,11 +28,26 @@ const refreshAccessToken = async () => {
 };
 
 const MyAppointments = () => {
-  const [appointments, setAppointments] = useState([]); // Estado inicial garantido como array vazio
-  const [services, setServices] = useState({}); // Estado para armazenar os detalhes dos serviços
+  const [appointments, setAppointments] = useState([]);
+  const [services, setServices] = useState({});
   const [error, setError] = useState(null);
+  const [userId, setUserId] = useState(null); // Para armazenar o ID do usuário logado
 
   useEffect(() => {
+    const fetchUserId = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/api/user/`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        });
+        setUserId(response.data.id); // Armazena o ID do usuário logado
+      } catch (err) {
+        console.error("Erro ao buscar ID do usuário:", err.response?.data || err.message);
+        setError("Erro ao carregar informações do usuário.");
+      }
+    };
+
     const fetchAppointments = async () => {
       console.log("Iniciando fetchAppointments...");
       try {
@@ -42,11 +57,9 @@ const MyAppointments = () => {
           },
         });
 
-        console.log("Resposta inicial da API:", response.data);
-
         if (Array.isArray(response.data)) {
           setAppointments(response.data);
-          const serviceIds = response.data.map(appointment => appointment.servico);
+          const serviceIds = response.data.map((appointment) => appointment.servico);
           await fetchServices(serviceIds);
         } else {
           console.error("Formato inesperado da resposta da API:", response.data);
@@ -54,41 +67,13 @@ const MyAppointments = () => {
         }
       } catch (err) {
         console.error("Erro ao buscar agendamentos:", err.response?.data || err.message);
-        if (err.response?.status === 401) {
-          console.log("Token expirado, tentando renovar...");
-          const newAccessToken = await refreshAccessToken();
-          if (newAccessToken) {
-            try {
-              const retryResponse = await axios.get(`${API_URL}/api/agendamentos/meus`, {
-                headers: {
-                  Authorization: `Bearer ${newAccessToken}`,
-                },
-              });
-
-              if (Array.isArray(retryResponse.data)) {
-                setAppointments(retryResponse.data);
-                const serviceIds = retryResponse.data.map(appointment => appointment.servico);
-                await fetchServices(serviceIds);
-              } else {
-                console.error("Formato inesperado da resposta da API:", retryResponse.data);
-                setError("Erro ao carregar agendamentos.");
-              }
-            } catch (retryError) {
-              console.error("Erro ao buscar agendamentos após renovar o token:", retryError);
-              setError("Erro ao carregar agendamentos.");
-            }
-          } else {
-            setError("Sessão expirada. Faça login novamente.");
-          }
-        } else {
-          setError("Erro ao carregar agendamentos.");
-        }
+        setError("Erro ao carregar agendamentos.");
       }
     };
 
     const fetchServices = async (serviceIds) => {
       try {
-        const servicePromises = serviceIds.map(id =>
+        const servicePromises = serviceIds.map((id) =>
           axios.get(`${API_URL}/api/servicos/${id}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -98,7 +83,7 @@ const MyAppointments = () => {
 
         const serviceResponses = await Promise.all(servicePromises);
         const servicesData = {};
-        serviceResponses.forEach(response => {
+        serviceResponses.forEach((response) => {
           servicesData[response.data.id] = response.data;
         });
         setServices(servicesData);
@@ -107,6 +92,7 @@ const MyAppointments = () => {
       }
     };
 
+    fetchUserId();
     fetchAppointments();
   }, []);
 
@@ -117,23 +103,29 @@ const MyAppointments = () => {
         appointments.map((appointment) => {
           const service = services[appointment.servico];
           return (
-            <Link key={appointment.id} to={`/agendamentos/${appointment.id}`}>
-              <div className="card">
-                <div className="card-content">
-                  {service ? (
-                    <>
-                      <h3>{service.tipo_servico}</h3>
-                      <p className="card-price">R$ {service.preco}</p>
-                      <p className="card-modalidade">Modalidade: {service.modalidade_preco}</p>
-                    </>
-                  ) : (
-                    <p>Carregando detalhes do serviço...</p>
-                  )}
-                  <p className="card-date">Data: {appointment.data}</p>
-                  <p className="card-time">Horário: {appointment.horario}</p>
-                </div>
+            <div key={appointment.id} className="card">
+              <div className="card-content">
+                {service ? (
+                  <>
+                    <h3>{service.tipo_servico}</h3>
+                    <p className="card-price">R$ {service.preco}</p>
+                    <p className="card-modalidade">Modalidade: {service.modalidade_preco}</p>
+                  </>
+                ) : (
+                  <p>Carregando detalhes do serviço...</p>
+                )}
+                <p className="card-date">Data: {appointment.data}</p>
+                <p className="card-time">Horário: {appointment.horario}</p>
+                <p className="card-status">
+                  Status: {appointment.concluido ? "Concluído" : "Pendente"}
+                </p>
+                {!appointment.concluido && userId !== service?.usuario && (
+                  <Link to="/avaliar" state={{ servicoId: appointment.servico }}>
+                    <button className="mark-completed-button">Concluir</button>
+                  </Link>
+                )}
               </div>
-            </Link>
+            </div>
           );
         })
       ) : (

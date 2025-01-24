@@ -1,56 +1,78 @@
-/* Container geral do perfil */
-.perfil-prestador {
-    background-color: #ffffe0;
-    padding: 20px 30px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 20px auto;
-    color: #690404;
-    text-align: center;
-    font-family: 'Arial', sans-serif; /* Melhorando a legibilidade */
+.perfil-prestador-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #e88585;
+  max-width: 800px;
+  max-height: 600px;
+  margin: 0 auto;
+  color: #333;
 }
 
-/* Título */
-.perfil-prestador h2 {
-    font-size: 28px;
-    color: #8b0000;
-    margin-bottom: 20px;
+.perfil-prestador-container h3 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
 }
 
-/* Estilo para a foto */
-.perfil-foto {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-    border: 2px solid #8b0000; /* Utilizando sua cor de destaque para bordas */
+.perfil-prestador-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-/* Placeholder para quando não houver foto */
-.perfil-sem-foto {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #ddd;
-    color: #999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 14px;
+.perfil-prestador-esquerda,
+.perfil-prestador-direita {
+  flex: 1;
+  text-align: left; /* Alinha o conteúdo à esquerda */
 }
 
-/* Detalhes do perfil */
-.perfil-detalhes {
-    text-align: left;
-    margin-top: 10px;
+.perfil-prestador-esquerda p,
+.perfil-prestador-direita p {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #555;
+  text-align: left; /* Garante que os parágrafos também estejam alinhados à esquerda */
 }
 
-.perfil-detalhes p {
-    font-size: 16px;
-    margin: 5px 0;
-    line-height: 1.5;
-    color: #8b0000; /* Utilizando sua cor de destaque */
+.perfil-media-estrelas {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.estrelas {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.estrela {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background-color: lightgray;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  overflow: hidden;
+}
+
+.estrela-preenchida {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: gold;
+  z-index: 1; /* Certifica-se de que fique acima do fundo */
+  clip-path: none; /* Remove o conflito de clip-path */
 }

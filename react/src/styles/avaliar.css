@@ -1,0 +1,78 @@
+/* Container geral */
+.avaliar-servico-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os inputs na tela */
+    gap: 20px;
+    padding: 20px;
+    background-color: #1c1c1e; /* Cor de fundo */
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Título */
+.avaliar-servico-container h3 {
+    font-size: 24px;
+    color: #ffffe0; /* Cor clara para o título */
+    margin-bottom: 20px;
+}
+
+/* Campo de entrada */
+.avaliar-servico-container input {
+    width: 100%; /* Garante que todos os inputs tenham a mesma largura */
+    padding: 10px;
+    background-color: #2e2e2e; /* Fundo escuro para os inputs */
+    color: #f1f1f1; /* Cor clara para o texto */
+    border: 1px solid #8b0000; /* Cor de borda */
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: left; /* Garante que o texto dentro do input fique à esquerda */
+}
+
+/* Foco no campo de entrada */
+.avaliar-servico-container input:focus {
+    border-color: #ff4500; /* Cor de foco */
+    outline: none;
+}
+
+/* Botões */
+.avaliar-servico-container button {
+    padding: 10px 15px;
+    background-color: #8b0000; /* Cor do botão */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+    width: 100%; /* Garante que o botão tenha a mesma largura que os inputs */
+}
+
+.avaliar-servico-container button:hover {
+    background-color: #ff4500; /* Cor de hover do botão */
+}
+
+.avaliar-servico-container button:disabled {
+    background-color: #666666; /* Cor do botão desabilitado */
+    cursor: not-allowed;
+}
+.mensagem-sucesso {
+    color: green; /* Texto verde */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Mensagem de Erro */
+.mensagem-erro {
+    color: red; /* Texto vermelho */
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}

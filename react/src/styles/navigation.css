@@ -41,3 +41,15 @@ nav a {
 nav a:hover {
     color: #fa8072; /* Destaque ao passar o mouse */
 }
+
+/* Estilo para o link de login (não logado) */
+.login-link {
+    color: #fa8072;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.login-link:hover {
+    color: #ffffff;
+}

@@ -43,10 +43,35 @@ class Servico(models.Model):
 
 class Agendamento(models.Model):
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="agendamentos")
-    servico = models.ForeignKey(Servico, on_delete=models.CASCADE, related_name="agendamentos")
+    servico = models.ForeignKey(Servico, on_delete=models.CASCADE, related_name="agendamentos", null=True)
     data = models.DateField()
     horario = models.TimeField()
+    concluido = models.BooleanField(default=False)  # Novo campo
     criado_em = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Agendamento para {self.servico.titulo} em {self.data} às {self.horario}"
+        return f"Agendamento para {self.servico} em {self.data} às {self.horario}"
+class Avaliacao(models.Model):
+    prestador = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="avaliacoes_recebidas")
+    avaliador = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="avaliacoes_feitas")
+    servico = models.ForeignKey(Servico, on_delete=models.CASCADE, related_name="avaliacoes")
+    pontualidade = models.IntegerField()
+    qualidade = models.IntegerField()
+    comunicacao = models.IntegerField()
+    custo_beneficio = models.IntegerField()
+    profissionalismo = models.IntegerField()
+    media = models.FloatField(editable=False)
+    criado_em = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        self.media = (
+            self.pontualidade
+            + self.qualidade
+            + self.comunicacao
+            + self.custo_beneficio
+            + self.profissionalismo
+        ) / 5
+        super().save(*args, **kwargs)
+
+    def __str__(self):
+        return f"Avaliação de {self.prestador} para {self.servico}"

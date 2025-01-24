@@ -13,6 +13,7 @@ import "./styles/style.css";
 import ListaTrabalhos from "./components/ListaTrabalhos";
 import TrabalhoDetalhes from "./components/TrabalhoDetalhes";
 import MyAppointments from "./components/MeusServicos";
+import AvaliarServico from "./components/AvaiarServico";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       <div className="page">
         <Header />
         <Navigation />
-        <main>
+        <main className="content">
           <Routes>
             <Route path="/" element={<Banner />} />
             <Route path="/cadastro" element={<Cadastro />} />
@@ -30,9 +31,12 @@ function App() {
             <Route path="/trabalhos" element={<ListaTrabalhos />} />
             <Route path="/trabalhos/:id" element={<TrabalhoDetalhes />} />
             <Route path="/meus/trabalhos" element={<MyAppointments />} />
+            <Route path="/avaliar" element={<AvaliarServico />} />
           </Routes>
-          <Features />
         </main>
+        <div className="features-container">
+          <Features />
+        </div>
         <Footer />
       </div>
     </Router>

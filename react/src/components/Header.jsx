@@ -1,21 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/header.css";
 import logo from "../images/logofalkao.ico";
+import { jwtDecode } from "jwt-decode";
+
 
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
 
-  const updateLoginStatus = () => {
+  const isTokenValid = useCallback((token) => {
+    try {
+      const { exp } = jwtDecode(token); // Decodifica o payload do token
+      return Date.now() < exp * 1000; // Valida se o token ainda é válido
+    } catch (e) {
+      return false; // Token inválido ou malformado
+    }
+  }, []);
+
+  const updateLoginStatus = useCallback(() => {
     const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  };
+    if (!token || !isTokenValid(token)) {
+      localStorage.removeItem("token");
+    }
+  }, [isTokenValid]);
 
   useEffect(() => {
     updateLoginStatus();
-  }, []);
+  }, [updateLoginStatus]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -62,7 +74,7 @@ function Header() {
             <p>Dom: Folga</p>
           </div>
         </div>
-                
+
         <div className="logs">
           {localStorage.getItem("token") ? (
             <button onClick={handleLogout} className="logout-button">

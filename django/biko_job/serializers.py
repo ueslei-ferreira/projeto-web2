@@ -1,6 +1,6 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
-from .models import Servico, Agendamento
+from .models import Servico, Agendamento, Avaliacao
 from django.contrib.auth import authenticate
 
 class UserSerializer(serializers.ModelSerializer):
@@ -63,4 +63,25 @@ class AgendamentoSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         # Adiciona o usuário logado ao agendamento
         validated_data["usuario"] = self.context["request"].user
+        return super().create(validated_data)
+    
+class AvaliacaoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Avaliacao
+        fields = "__all__"
+        read_only_fields = ["media", "avaliador", "prestador"]
+
+    def validate(self, data):
+        # Validações customizadas
+        for key, value in data.items():
+            if isinstance(value, int) and not (0 <= value <= 5):
+                raise serializers.ValidationError({key: "A pontuação deve estar entre 0 e 5."})
+        return data
+
+    def create(self, validated_data):
+        # Adiciona avaliador e prestador automaticamente
+        user = self.context["request"].user
+        servico = validated_data["servico"]
+        validated_data["avaliador"] = user
+        validated_data["prestador"] = servico.usuario
         return super().create(validated_data)

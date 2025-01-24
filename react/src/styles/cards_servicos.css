@@ -64,3 +64,17 @@
   text-decoration: none;
   color: black; /* Mantém a cor padrão do texto */
 }
+.mark-completed-button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #8b0000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mark-completed-button:hover {
+  background-color: #ff4500;
+}
